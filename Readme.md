@@ -18,7 +18,6 @@ A provided scxml file
   </onentry>
  </final>
 </scxml>
-   
 ```
 Can be loaded:
 
