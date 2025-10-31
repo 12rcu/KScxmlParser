@@ -36,6 +36,9 @@ class KScxmlRootNode {
     @JacksonXmlProperty(isAttribute = true)
     var datamodel: String? = null
 
+    @JacksonXmlProperty(isAttribute = true)
+    var name: String? = null
+
     /**
      * enum
      * default "early",

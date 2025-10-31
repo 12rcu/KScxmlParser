@@ -4,6 +4,12 @@ This is a small library that provides Java/Kotlin classes that represent the SCX
 These classes can be used to parse and encode SCXML files.
 No additional functionality is provided.
 
+## Implementation
+
+```kotlin
+implementation(group = "dev.klenz.matthias", name = "KScxmlParser", version = "0.1.0-pre2")
+```
+
 ## Example
 
 A provided scxml file

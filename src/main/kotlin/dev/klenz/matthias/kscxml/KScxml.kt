@@ -1,5 +1,6 @@
 package dev.klenz.matthias.kscxml
 
+import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import dev.klenz.matthias.kscxml.components.KScxmlRootNode
 
@@ -12,6 +13,10 @@ class KScxml(var rootNode: KScxmlRootNode? = null) {
          */
         fun load(text: String): KScxml {
             val mapper = XmlMapper()
+            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            mapper.configure(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE, false)
+            mapper.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false)
+            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
             return KScxml(mapper.readValue(text, KScxmlRootNode::class.java))
         }
     }
