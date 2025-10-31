@@ -7,12 +7,11 @@ plugins {
 }
 
 group = "dev.klenz.matthias.scxml"
-version = "1.0-SNAPSHOT"
+version = System.getenv("GITHUB_REF")?.removePrefix("refs/tags/") ?: "0.1-local"
 
 repositories {
     mavenCentral()
 }
-
 
 java {
     withJavadocJar()
