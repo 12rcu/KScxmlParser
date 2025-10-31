@@ -6,7 +6,7 @@ plugins {
     id("org.jreleaser") version "1.20.0"
 }
 
-group = "dev.klenz.matthias.kscxml"
+group = "dev.klenz.matthias"
 version = System.getenv("GITHUB_REF")?.removePrefix("refs/tags/") ?: "0.1-local"
 
 repositories {
@@ -62,7 +62,7 @@ publishing {
         register("release", MavenPublication::class) {
             from(components["java"])
             pom {
-                name = "KScxmlParser"
+                name = "KScxml"
                 description = "This is a small library that provides Java/Kotlin classes that represent the SCXML standard."
                 url = "https://github.com/12rcu/KScxmlParser"
                 developers {
