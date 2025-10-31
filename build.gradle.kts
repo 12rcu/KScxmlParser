@@ -6,7 +6,7 @@ plugins {
     id("org.jreleaser") version "1.20.0"
 }
 
-group = "dev.klenz.matthias.scxml"
+group = "dev.klenz.matthias.kscxml"
 version = System.getenv("GITHUB_REF")?.removePrefix("refs/tags/") ?: "0.1-local"
 
 repositories {
