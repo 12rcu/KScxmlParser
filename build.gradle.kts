@@ -19,9 +19,6 @@ java {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.20.0")
-
     testImplementation(kotlin("test"))
 }
 
