@@ -19,6 +19,8 @@ java {
 }
 
 dependencies {
+    implementation("org.graalvm.polyglot:polyglot:25.0.1")
+    implementation("org.graalvm.polyglot:js:25.0.1")
     testImplementation(kotlin("test"))
 }
 
