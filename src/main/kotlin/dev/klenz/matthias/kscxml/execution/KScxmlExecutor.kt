@@ -21,6 +21,8 @@ class KScxmlExecutor(
         .out(System.out)
         .build()
 ) {
+    private val transitionEventListeners = mutableListOf<(from: KScxmlState, to: KScxmlState) -> Unit>()
+
     /**
      * clears the internal state and puts in all initial states
      */
@@ -28,6 +30,10 @@ class KScxmlExecutor(
         val activeStates = rootNode.findInitialStates()
         internalScxmlState.activeStates.clear()
         internalScxmlState.activeStates.addAll(activeStates)
+    }
+
+    fun registerTransitionEventListener(onEvent: (from: KScxmlState, to: KScxmlState) -> Unit) {
+        transitionEventListeners.add(onEvent)
     }
 
     fun onEvent(eventName: String) {
@@ -57,6 +63,8 @@ class KScxmlExecutor(
     }
 
     fun transitionToState(from: KScxmlState, to: KScxmlState) {
+        transitionEventListeners.forEach { it(from, to) }
+
         internalScxmlState.activeStates.remove(from)
         removeActiveChildStates(from)
         internalScxmlState.activeStates.add(to)
